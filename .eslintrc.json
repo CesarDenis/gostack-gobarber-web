@@ -35,6 +35,14 @@
           "allowExpressions": true
         }
       ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
       "import/prefer-default-export": "off",
       "prettier/prettier": "error",
       "react-hooks/exhaustive-deps": "warn",
@@ -45,15 +53,8 @@
           "extensions": [".tsx"]
         }
       ],
-      "react/jsx-props-no-spreading": "off",
-      "import/extensions": [
-        "error",
-        "ignorePackages",
-        {
-          "ts": "never",
-          "tsx": "never"
-        }
-      ]
+      "react/jsx-one-expression-per-line": "off",
+      "react/jsx-props-no-spreading": "off"
     },
     "settings": {
       "import/resolver": {
