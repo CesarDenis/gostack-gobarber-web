@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiUser, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -11,7 +12,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -41,29 +42,36 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={imgLogo} alt="GoBarber" />
+        <AnimationContainer>
+          <img src={imgLogo} alt="GoBarber" />
 
-        <Form ref={formRef} onSubmit={handleSubmit} noValidate>
-          <h1>Faça seu cadastro</h1>
+          <Form ref={formRef} onSubmit={handleSubmit} noValidate>
+            <h1>Faça seu cadastro</h1>
 
-          <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiMail} type="email" placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input
+              name="email"
+              icon={FiMail}
+              type="email"
+              placeholder="E-mail"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Cadastrar</Button>
+            <Button type="submit">Cadastrar</Button>
 
-          <a href="forgot">Esqueci minha senha</a>
-        </Form>
+            <a href="forgot">Esqueci minha senha</a>
+          </Form>
 
-        <a href="forgot">
-          <FiArrowLeft />
-          Criar conta
-        </a>
+          <Link to="/">
+            <FiArrowLeft />
+            Voltar para logon
+          </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );
